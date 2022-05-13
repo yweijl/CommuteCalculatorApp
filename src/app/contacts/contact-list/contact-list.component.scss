@@ -1,0 +1,27 @@
+.container {
+  height: 100%;
+  padding-right: 32px;
+}
+
+.buttons {
+  margin-top: 32px;
+  .auto-complete {
+    width: 100%;
+  }
+
+  .add-contact-btn {
+    width: 100%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}
+
+.contact-list {
+  height: 62%;
+  overflow: hidden;
+  overflow-y: scroll;
+
+  .mat-selection-list {
+    margin-top: 0px;
+  }
+}

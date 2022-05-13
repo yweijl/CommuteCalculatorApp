@@ -1,0 +1,78 @@
+
+<form [formGroup]="loginForm" *ngIf="isLogin" novalidate (ngSubmit)="onSubmit()">
+  <mat-spinner *ngIf="this.isLoading"></mat-spinner>
+  <mat-card class="auth-card" *ngIf="!this.isLoading">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="email" formControlName="email" email="true">
+          <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="password" type="password" formControlName="password">
+          <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="buttons">
+      <button mat-raised-button color="primary" type="submit">Login</button>
+      <a class="toggle-link" (click)="switchForm()">Sign up</a>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+<form [formGroup]="registerForm" *ngIf="!isLogin" novalidate (ngSubmit)="onSubmit()">
+  <mat-spinner *ngIf="this.isLoading"></mat-spinner>
+  <mat-card *ngIf="!this.isLoading" class="auth-card">
+    <mat-card-header>
+      <mat-card-title>Sign up</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="name" formControlName="name">
+          <mat-error *ngIf="registerForm.controls['name'].hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="email" formControlName="email" email="true">
+          <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="password" type="password" formControlName="password">
+          <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="passwordConfirm" type="password" formControlName="passwordConfirm">
+            <mat-error *ngIf="registerForm.controls['passwordConfirm'].hasError('required')">
+              PasswordConfirm is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="buttons">
+      <button mat-raised-button color="primary" type="submit">Sign up</button>
+      <a class="toggle-link" (click)="switchForm()">Go to login</a>
+    </mat-card-actions>
+  </mat-card>
+</form>

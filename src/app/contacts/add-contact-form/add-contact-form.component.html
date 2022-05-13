@@ -1,0 +1,78 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="add-contact-card">
+    <mat-card-header>
+      <mat-card-title>Add Contact</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="First name" formControlName="firstName">
+            <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Last name" formControlName="lastName">
+            <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+              Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Street" formControlName="street">
+            <mat-error *ngIf="addressForm.controls['street'].hasError('required')">
+              Street is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="HouseNumber" formControlName="houseNumber">
+            <mat-error *ngIf="addressForm.controls['houseNumber'].hasError('required')">
+              House number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="HouseNumberAddition" formControlName="houseNumberAddition">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="City" formControlName="city">
+            <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
+              City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Postal Code" type="text" (keydown.space)="$event.preventDefault()"
+              formControlName="postalCode">
+              <mat-error *ngIf="addressForm.controls['postalCode'].hasError('required')">
+                postalCode is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="addressForm.controls['postalCode'].hasError('pattern')">
+                postalCode is <strong>invalid</strong>
+              </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="buttons">
+      <button mat-raised-button (click)="onCancel()" >Cancel</button>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

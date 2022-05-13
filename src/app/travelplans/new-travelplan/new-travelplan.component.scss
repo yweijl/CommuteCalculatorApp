@@ -1,0 +1,92 @@
+.title {
+  margin-bottom: 32px;
+}
+.container {
+  width: 75%;
+  height: 80%;
+}
+
+.buttons {
+  button:first-child {
+    border-top-right-radius: 0px;
+  }
+  button:last-child {
+    border-top-left-radius: 0px;
+  }
+}
+
+.table-container {
+  max-height: 84%;
+  overflow: auto;
+  padding-bottom: 12px;
+  padding-right: 12px;
+}
+
+.mat-reset {
+  background-color: #98acda;
+}
+
+.add-contact-btn {
+  min-width: 13%;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-Number {
+  width: 10%;
+}
+
+.mat-column-Origin {
+  width: 45%;
+}
+
+.mat-column-Destination {
+  width: 45%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: whitesmoke;
+  cursor: pointer;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.element-detail-body {
+  display: flex;
+  opacity: 0.4;
+  width: 100%;
+
+  h3 {
+  }
+
+  .mat-icon {
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-top: 2px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .container {
+    width: 100%;
+  }
+}

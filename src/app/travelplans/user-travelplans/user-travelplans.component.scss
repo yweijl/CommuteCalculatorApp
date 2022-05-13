@@ -1,0 +1,74 @@
+.container {
+  height: 100%;
+  padding-right: 32px;
+
+  h1 {
+    margin-bottom: 32px;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.add-contact-btn {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.mat-column-Number {
+  width: 10%;
+}
+
+.mat-column-Origin {
+  width: 45%;
+}
+
+.mat-column-Destination {
+  width: 45%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: whitesmoke;
+  cursor: pointer;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail-body {
+  display: flex;
+  opacity: 0.4;
+
+  h3 {
+    width: 20%;
+    overflow: hidden;
+  }
+
+  .mat-icon {
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-top: 2px;
+  }
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.element-origin {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}

@@ -1,0 +1,95 @@
+<div class="container">
+  <h1 class="title">Route registration</h1>
+  <div class="buttons">
+    <button
+      (click)="onResetTravelplan()"
+      class="add-contact-btn"
+      mat-flat-button
+      color="reset"
+    >
+      RESET
+      <mat-icon aria-hidden="false" aria-label="calculate travelplan"
+        >refresh</mat-icon
+      >
+    </button>
+    <button
+      (click)="onCalculateTravelplan()"
+      class="add-contact-btn"
+      mat-flat-button
+      color="primary"
+    >
+      CALCULATE
+      <mat-icon aria-hidden="false" aria-label="calculate travelplan"
+        >explore</mat-icon
+      >
+    </button>
+  </div>
+  <div class="table-container">
+    <table
+      mat-table
+      [dataSource]="this.travelplanService.selectedTravelplanDataSource"
+      multiTemplateDataRows
+      class="mat-elevation-z8"
+    >
+      <!-- # Column -->
+      <ng-container matColumnDef="{{ columnsToDisplay[0] }}">
+        <!-- explicitly set # because it's not allowed as css class -->
+        <th mat-header-cell *matHeaderCellDef>#</th>
+        <td mat-cell *matCellDef="let element">{{ element[0] }}</td>
+      </ng-container>
+
+      <!-- Origin Column -->
+      <ng-container matColumnDef="{{ columnsToDisplay[1] }}">
+        <th mat-header-cell *matHeaderCellDef>{{ columnsToDisplay[1] }}</th>
+        <td mat-cell *matCellDef="let element">
+          {{ getRouteOrigin(element) }}
+        </td>
+      </ng-container>
+
+      <!-- Destination Column -->
+      <ng-container matColumnDef="{{ columnsToDisplay[2] }}">
+        <th mat-header-cell *matHeaderCellDef>{{ columnsToDisplay[2] }}</th>
+        <td mat-cell *matCellDef="let element">
+          {{ getRouteDestination(element[0]) }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="expandedDetail">
+        <td
+          mat-cell
+          *matCellDef="let element"
+          [attr.colspan]="columnsToDisplay.length"
+        >
+          <div
+            class="element-detail"
+            [@detailExpand]="
+              element == expandedElement ? 'expanded' : 'collapsed'
+            "
+          >
+            <div class="element-detail-body">
+              <h3>{{ addressToString(element[1].address) }}</h3>
+              <mat-icon aria-hidden="false" aria-label="double arrow">
+                double_arrow</mat-icon
+              >
+              <h3>{{ destinationAddressToString(element[0]) }}</h3>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr
+        mat-row
+        *matRowDef="let element; columns: columnsToDisplay"
+        class="element-row"
+        [class.expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element"
+      ></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: ['expandedDetail']"
+        class="detail-row"
+      ></tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.full-width {
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.toggle-link {
+  cursor: pointer;
+  margin-left: 16px;
+  color: blue;
+}
+
+.auth-card {
+  width: 30%;
+  margin: 20px auto;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}

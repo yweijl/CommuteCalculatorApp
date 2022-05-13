@@ -1,0 +1,31 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <div class="top-container">
+      <div class="company-brand">Boba</div>
+      <div class="user-profile">
+        <img
+          class="user-image"
+          src="../assets/images/anna-linkedin.jpg"
+          alt=""
+        />
+        <div class="user-text">Welkom Anna</div>
+      </div>
+    </div>
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="/dashboard">Dashboard</a>
+      <a mat-list-item href="/user-travelplans">Travel plans</a>
+      <a mat-list-item (click)="logout()">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

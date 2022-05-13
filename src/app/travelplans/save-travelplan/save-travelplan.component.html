@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Travelplan</h2>
+<div class="picker">
+  <mat-form-field appearance="fill">
+    <mat-label>Registration date</mat-label>
+    <input
+      matInput
+      (dateInput)="dateChanged('input', $event)"
+      [matDatepicker]="picker"
+      [value]="selectedDate.value"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+<mat-dialog-content>
+  <div *ngFor="let route of data" class="container">
+    <h3>
+      {{ addressToString(route.origin!) }}
+    </h3>
+    <mat-icon class="arrow-icon">keyboard_double_arrow_right</mat-icon>
+    <h3>
+      {{ addressToString(route.destination!) }}
+    </h3>
+    <h3>{{ (route.distance! / 1000.0).toFixed(1) }} km</h3>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Discard</button>
+  <button
+    mat-button
+    color="primary"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="onSave()"
+  >
+    Save
+  </button>
+</mat-dialog-actions>
